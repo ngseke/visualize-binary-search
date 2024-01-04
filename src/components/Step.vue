@@ -28,10 +28,8 @@ defineProps<{
       </span>
 
       <span
-        class="border-b-4 border-transparent"
-        :class="{
-          'border-cyan-500': l <= index && index <= r,
-        }"
+        class="border-b-4"
+        :class="l <= index && index <= r ? 'border-cyan-500' : 'border-transparent' "
       />
     </li>
   </ul>
