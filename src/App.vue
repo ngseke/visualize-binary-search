@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { generateBinarySearchSteps } from './modules/binary-search'
 import Step from './components/Step.vue'
-import { algorithm } from './modules/algorithm'
+import Algorithm from './components/Algorithm.vue'
 
 const length = ref(35)
 const list = computed(() => (
@@ -53,7 +53,9 @@ const steps = computed(() => {
         </li>
       </ul>
       <hr>
-      <pre>{{ algorithm }}</pre>
+      <div>
+        <Algorithm />
+      </div>
     </article>
   </div>
 </template>
