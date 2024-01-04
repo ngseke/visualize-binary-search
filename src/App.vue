@@ -4,14 +4,18 @@ import { generateBinarySearchSteps } from './modules/binary-search'
 import Step from './components/Step.vue'
 import { algorithm } from './modules/algorithm'
 
-const list = Array.from({ length: 40 }).map((_, index) => index)
+const length = ref(35)
+const list = computed(() => (
+  Array.from({ length: length.value })
+    .map((_, index) => index)
+))
 const target = ref(15)
 
 const steps = computed(() => {
   const targetValue = target.value
 
   return generateBinarySearchSteps(
-    list,
+    list.value,
     (item) => (item >= targetValue)
   )
 })
@@ -20,6 +24,10 @@ const steps = computed(() => {
 <template>
   <div class="container flex flex-col gap-4 py-4">
     <form>
+      <label>
+        list length:
+        <input v-model.number="length" class="border" type="number">
+      </label>
       <label>
         target:
         <input v-model.number="target" class="border" type="number">
